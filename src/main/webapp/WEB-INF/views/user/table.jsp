@@ -20,8 +20,8 @@
 			<div class="panel panel-default">
 				<div class="panel-heading">User's Tables</div>
 				<div class="form-group has-success">
-								<!-- <p id="true"> --><c:if test="${!empty message}">
-					${message}<!-- </p> --></c:if>	
+								 <p id="true"> <c:if test="${!empty message}">
+					${message} </p> </c:if>	
 								</div>
 				<div class="panel-body">
 					<div class="table-responsive">
@@ -45,10 +45,10 @@
 								<td class="center">${user.username}</td>
 								<td class="center">${user.email }</td>
 								<td class="center">${user.address }</td>
-								<td class="breadcrumb"><a href="<c:url value='/edit/${user.id}'/>"></svg> <svg
+								<td class="breadcrumb"><a href="<c:url value='/user/edit/${user.id}'/>"></svg> <svg
 											class="glyph stroked pencil">
 											<use xlink:href="#stroked-pencil" /></svg></a></td>
-								<td class="breadcrumb"><a href="<c:url value='/delete-user/${user.id}'/>"
+								<td class="breadcrumb"><a href="<c:url value='/user/delete/${user.id}'/>"
 									id="a18"
 									onclick="return confirm('Are you sure you want to delete this item?');"><svg class="glyph stroked trash"><use xlink:href="#stroked-trash"/></svg></a></td>
 							</tr>

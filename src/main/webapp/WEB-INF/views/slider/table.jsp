@@ -18,7 +18,7 @@
 		<div class="col-md-12">
 			<!-- Advanced Tables -->
 			<div class="panel panel-default">
-				<div class="panel-heading"><a href="add-slider">Add Slider</a></div>
+				<div class="panel-heading"><a href="add">Add Slider</a></div>
 				<p id="true"><c:if test="${!empty message}">
 					${message}</p></c:if>
 				<div class="panel-body">
@@ -33,14 +33,14 @@
 									<th>Delete</th>
 								</tr>
 							</thead>
-								<c:forEach items="${image}" var="image">
+								<c:forEach items="${slider}" var="image">
 							<tr class="odd gradeX">
 								<td class="center">${image.id }</td>
 								<td class="center"><img src="<c:url value="/resources/uploads/${image.sliderName }"/>" style="height: 100px;width: 100px;"></td>
-								<td class="breadcrumb"><a href="<c:url value='/edit-slider/${image.id}'/>"></svg> <svg
+								<td class="breadcrumb"><a href="<c:url value='/slider/edit/${image.id}'/>"></svg> <svg
 											class="glyph stroked pencil">
 											<use xlink:href="#stroked-pencil" /></svg></a></td>
-								<td class="breadcrumb"><a href="<c:url value='/delete-slider/${image.id}'/>"
+								<td class="breadcrumb"><a href="<c:url value='/slider/delete/${image.id}'/>"
 									id="a18"
 									onclick="return confirm('Are you sure you want to delete this item?');"><svg class="glyph stroked trash"><use xlink:href="#stroked-trash"/></svg></a></td>
 							</tr>

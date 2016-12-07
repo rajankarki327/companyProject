@@ -20,6 +20,7 @@ import com.model.spring.UserModel;
 import com.service.spring.UserService;
 
 @Controller
+@RequestMapping(value="user")
 public class UserController {
 	
 	
@@ -39,23 +40,23 @@ public class UserController {
 //		String s = S.getEmail();
 		userService.addUser(S);
 		redirectAttributes.addFlashAttribute("message", "Registration successfully...");
-		return "redirect:/login";
+		return "redirect:/user/login";
 	}
 
-	@RequestMapping(value = "/user-table", method = RequestMethod.GET)
+	@RequestMapping(value = "/table", method = RequestMethod.GET)
 	public String getAll(Model model) {
 		ArrayList<UserModel> list = (ArrayList<UserModel>) this.userService.getAll();
-		model.addAttribute("homePath","user-table");
+		model.addAttribute("homePath","user/table");
 		model.addAttribute("user", list);
 		return "user/table";
 	}
 
-	@RequestMapping(value = "/delete-user/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
 	public String deleteUser(@PathVariable("id") int id,final RedirectAttributes redirectAttributes,Model model) {
 		this.userService.deleteUser(id);
 		redirectAttributes.addFlashAttribute("message","User data deleted successfully.");
-		model.addAttribute("user", "/companyProject/delete-user");
-		return "redirect:/user-table";
+		model.addAttribute("user", "/companyProject/delete");
+		return "redirect:/user/table";
 
 		// return "index";
 	}
@@ -63,7 +64,7 @@ public class UserController {
 	@RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
 	public ModelAndView update(@PathVariable("id") int id, Model model) {
 		model.addAttribute("user", this.userService.getUserById(id));
-		model.addAttribute("homePath","/companyProject/user-table");
+		model.addAttribute("homePath","/companyProject/user/table");
 		UserModel model1 = new UserModel();
 		ModelAndView mav = new ModelAndView("user/edit");
 		mav.addObject("message", model1);
@@ -73,7 +74,7 @@ public class UserController {
 	@RequestMapping(value = "/edit/update/{id}", method = RequestMethod.POST)
 	public String edit(@ModelAttribute("UserModel") UserModel p) {
 		this.userService.editUser(p);
-		return "redirect:/user-table";
+		return "redirect:/user/table";
 	}
 	
 	
@@ -91,10 +92,10 @@ public class UserController {
 		UserModel sum = this.userService.checkLogin(p);
 		if (sum == null) {
 			redirectAttributes.addFlashAttribute("msg", "Incorrect email or password...");
-			return "redirect:/login";	
+			return "redirect:/user/login";	
 		}
 		model.put("name",p.getEmail());
-		return ("redirect:/dashboard");
+		return ("redirect:/user/dashboard");
 	}
 	
 	@RequestMapping(value = "/dashboard")

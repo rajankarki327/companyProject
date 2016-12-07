@@ -18,7 +18,7 @@
 		<div class="col-md-12">
 			<!-- Advanced Tables -->
 			<div class="panel panel-default">
-				<div class="panel-heading"><a href="add-nav">Add Nav Field</a></div>
+				<div class="panel-heading"><a href="nav/add">Add Nav Field</a></div>
 				<p id="true"><c:if test="${!empty message}">
 					${message}</p></c:if>
 				<div class="panel-body">
@@ -37,10 +37,10 @@
 							<tr class="odd gradeX">
 								<td class="center">${nav.id }</td>
 								<td class="center">${nav.navField }</td>
-								<td class="breadcrumb"><a href="<c:url value='/edit-nav/${nav.id}'/>"></svg> <svg
+								<td class="breadcrumb"><a href="<c:url value='/nav/edit/${nav.id}'/>"></svg> <svg
 											class="glyph stroked pencil">
 											<use xlink:href="#stroked-pencil" /></svg></a></td>
-								<td class="breadcrumb"><a href="<c:url value='/delete-nav/${nav.id}'/>"
+								<td class="breadcrumb"><a href="<c:url value='/nav/delete/${nav.id}'/>"
 									id="a18"
 									onclick="return confirm('Are you sure you want to delete this item?');"><svg class="glyph stroked trash"><use xlink:href="#stroked-trash"/></svg></a></td>
 							</tr>

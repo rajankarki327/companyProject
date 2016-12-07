@@ -50,10 +50,16 @@
 		
 	<div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
 		<ul class="nav menu">
-			<li <c:if test="${!empty dashboard}">class="active"</c:if>><a href="dashboard"><svg class="glyph stroked dashboard-dial"><use xlink:href="#stroked-dashboard-dial"></use></svg> Dashboard</a></li>
-			<li <c:if test="${!empty user}">class="active"</c:if>><a href="user-table"><svg class="glyph stroked calendar"><use xlink:href="#stroked-calendar"></use></svg>Users</a></li>
-			<li <c:if test="${!empty slider}">class="active"</c:if>><a href="slider-table"><svg class="glyph stroked calendar"><use xlink:href="#stroked-calendar"></use></svg>Sliders</a></li>
-			<li <c:if test="${!empty nav}">class="active"</c:if>><a href="nav-table"><svg class="glyph stroked calendar"><use xlink:href="#stroked-calendar"></use></svg>Navigation bar</a></li>
+  <c:url var="dashboards" value="/user/dashboard" ></c:url>
+  <c:url var="users" value="/user/table" ></c:url> 
+  <c:url var="sliders" value="/slider/table" ></c:url>
+  <c:url var="navs" value="/nav/table" ></c:url>
+  <!-- <c:url var="sliders" value="/slider/table" ></c:url>
+  <c:url var="sliders" value="/slider/table" ></c:url> -->
+			<li <c:if test="${!empty dashboard}">class="active"</c:if>><a href="${dashboards }"><svg class="glyph stroked dashboard-dial"><use xlink:href="#stroked-dashboard-dial"></use></svg> Dashboard</a></li>
+			<li <c:if test="${!empty user}">class="active"</c:if>><a href="${users }"><svg class="glyph stroked calendar"><use xlink:href="#stroked-calendar"></use></svg>Users</a></li>
+			<li <c:if test="${!empty slider}">class="active"</c:if>><a href="${sliders }"><svg class="glyph stroked calendar"><use xlink:href="#stroked-calendar"></use></svg>Sliders</a></li>
+			<li <c:if test="${!empty nav}">class="active"</c:if>><a href="${navs }"><svg class="glyph stroked calendar"><use xlink:href="#stroked-calendar"></use></svg>Navigation bar</a></li>
 			<li <c:if test="${!empty u}">class="active"</c:if>><a href="charts.html"><svg class="glyph stroked line-graph"><use xlink:href="#stroked-line-graph"></use></svg> Charts</a></li>
 			<li <c:if test="${!empty uer}">class="active"</c:if>><a href="tables.html"><svg class="glyph stroked table"><use xlink:href="#stroked-table"></use></svg> Tables</a>
 			</li>

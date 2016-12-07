@@ -23,7 +23,7 @@
 			<div class="panel-body">
 				<div class="col-md-6">
 					<form role="form" enctype="multipart/form-data"
-						modelAttribute="uploadedFile" action="submitFileUpload"
+						modelAttribute="uploadedFile" action="/submitFileUpload"
 						method="post">
 						<fieldset>
 							<div class="form-group">

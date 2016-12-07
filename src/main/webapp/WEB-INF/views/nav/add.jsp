@@ -23,7 +23,7 @@
 			<div class="panel-body">
 				<div class="col-md-6">
 					<form role="form" enctype="multipart/form-data"
-						modelAttribute="navModel" action="add-nav"
+						modelAttribute="navModel" action="add"
 						method="post">
 						<fieldset>
 							<div class="form-group">

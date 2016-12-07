@@ -25,16 +25,18 @@ import com.rajan.validator.FileUploadValidator;
 import com.service.spring.SliderService;
 
 @Controller
-//@RequestMapping("slider")
+@RequestMapping(value="slider")
 public class SliderController {
 
+	
+	
 	@Autowired
 	FileUploadValidator fileValidator;
 
 	@Autowired
 	SliderService sliderService;
 
-	@RequestMapping("/add-slider")
+	@RequestMapping("/upload")
 	public ModelAndView getUploadForm(@ModelAttribute("uploadedFile") FileUpload uploadedFile, BindingResult result,Model model) {
 		model.addAttribute("slider","slider");
 		return new ModelAndView("slider/sliderUpload");
@@ -79,37 +81,37 @@ public class SliderController {
 			e.printStackTrace();
 		}
 		redirectAttributes.addFlashAttribute("message", "slider uploaded successfully...");
-		return "redirect:/slider-table";
+		return "redirect:/nav/table";
 	}
 
-	@RequestMapping(value = "/slider-table", method = RequestMethod.GET)
+	@RequestMapping(value = "/table", method = RequestMethod.GET)
 	public String getAllSlider(Model model) {
 		ArrayList<SliderModel> list = (ArrayList<SliderModel>) this.sliderService.getAllSlider();
-		model.addAttribute("homePath", "slider-table");
+		model.addAttribute("homePath", "slider/table");
 		model.addAttribute("slider", list);
 		return "slider/table";
 	}
 
-	@RequestMapping(value = "/delete-slider/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
 	public String deleteSlider(@PathVariable("id") int id, final RedirectAttributes redirectAttributes) {
 		this.sliderService.deleteSlider(id);
-		redirectAttributes.addFlashAttribute("message", "Slider image deleted successfully.");
-		return "redirect:/slider-table";
+		redirectAttributes.addAttribute("message", "Slider image deleted successfully.");
+		return "redirect:/nav/table";
 
 		// return "index";
 	}
 	
-	@RequestMapping(value = "/edit-slider/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
 	public ModelAndView updateSlider(@PathVariable("id") int id, Model model) {
 		model.addAttribute("slider", this.sliderService.getSliderById(id));
-		model.addAttribute("homePath","/companyProject/slider-table");
+		model.addAttribute("homePath","/companyProject/slider/table");
 		SliderModel model1 = new SliderModel();
 		ModelAndView mav = new ModelAndView("slider/edit");
 		mav.addObject("message", model1);
 		return mav;
 	}
 
-	@RequestMapping(value = "/edit-slider/update/{id}", method = RequestMethod.POST)
+	@RequestMapping(value = "/edit/update/{id}", method = RequestMethod.POST)
 	public String editFileUploaded(@ModelAttribute("uploadedFile") FileUpload uploadedFile, SliderModel sliderModel,
 			final RedirectAttributes redirectAttributes, BindingResult result) {
 		InputStream inputStream = null;
@@ -147,14 +149,14 @@ public class SliderController {
 			e.printStackTrace();
 		}
 		redirectAttributes.addFlashAttribute("message", "slider updated successfully...");
-		return "redirect:/slider-table";
+		return "redirect:/slider/table";
 	}
 	
 	
 	
 	
 
-	// @RequestMapping(value = "/slider-table", method = RequestMethod.GET)
+	// @RequestMapping(value = "/slider/table", method = RequestMethod.GET)
 	// public ModelAndView getAllSlider(ModelMap map) {
 	// ArrayList<SliderModel> list = (ArrayList<SliderModel>)
 	// this.sliderService.getAllSlider();

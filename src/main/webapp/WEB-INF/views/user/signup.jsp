@@ -27,6 +27,7 @@
 			<div class="login-panel panel panel-default">
 				<div class="panel-heading">Signup</div>
 				<div class="panel-body">
+				
 					<form role="form" action="signup" method="post">
 						<fieldset>
                                                     <div class="form-group">

@@ -20,6 +20,8 @@
 			<div class="panel-heading">User input fields</div>
 			<div class="panel-body">
 				<div class="col-md-6">
+				
+  <c:url var="addAction" value="/nav" ></c:url>
 					<form role="form" modelAttribute="message" action="update/${id}"
 						method="post"enctype="multipart/form-data">
 						<fieldset>
