@@ -8,7 +8,7 @@
 
 <div class="row">
 	<div class="col-lg-12">
-		<h1 class="page-header">Edit user's information</h1>
+		<h1 class="page-header">Edit about-us field data</h1>
 	</div>
 </div>
 <!--/.row-->
@@ -21,16 +21,17 @@
 			<div class="panel-body">
 				<div class="col-md-6">
 				
-  <c:url var="addAction" value="/nav" ></c:url>
-					<form role="form" modelAttribute="message" action="update/${id}"
+					<form role="form" modelAttribute="message" action="update/${id}?${_csrf.parameterName}=${_csrf.token}"
 						method="post"enctype="multipart/form-data">
 						<fieldset>
 							<div class="form-group">
-								<label>Nav Field</label> <input class="form-control" name="navField"value="${nav.navField }"
+								<label></label> <input class="form-control" name="navField" value="${nav.navField }"
 									placeholder="Edit Nav field name">
 							</div>
+								<input type="hidden" name="${_csrf.parameterName}"
+								value="${_csrf.token}" />
 
-							<input type="submit" value="Slider Update" />
+							<input type="submit" value="Update" />
 						</fieldset>
 					</form>
 				</div>

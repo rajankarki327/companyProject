@@ -23,18 +23,45 @@
 			<div class="panel-body">
 				<div class="col-md-6">
 					<form role="form" enctype="multipart/form-data"
-					 action="submitFileUpload?${_csrf.parameterName}=${_csrf.token}""
+					 action="addData?${_csrf.parameterName}=${_csrf.token}""
 						method="post">
 						<fieldset>
+						
 							<div class="form-group">
-								<label>Choose your slider image</label> <input type="file" name="file">
+								<label>Name</label> <input class="form-control" name="name"
+									placeholder="Enter name">
+							</div>
+							
+							<div class="form-group">
+								<label>Post</label> <input class="form-control" name="post"
+									placeholder="Enter post">
+							</div>
+							
+							<div class="form-group">
+								<label>Image</label> <input type="file" name="image">
 								<td style="color: red; font-style: italic;"><form:errors
 										path="file" /></td>
 							</div>
+							
+							<div class="form-group">
+								<label>details</label> <input class="form-control" name="details"
+									placeholder="Enter details">
+							</div>
+							
+							<div class="form-group">
+								<label>fb_id</label> <input class="form-control" name="fb_id"
+									placeholder="Enter facebook id">
+							</div>
+							
+							<div class="form-group">
+								<label>twiter_id</label> <input class="form-control" name="twiter_id"
+									placeholder="Enter twiter id">
+							</div>
+													
 							<input type="hidden" name="${_csrf.parameterName}"
 								value="${_csrf.token}" />
 
-							<input type="submit" value="file upload" />
+							<input type="submit" value="submit" />
 						</fieldset>
 					</form>
 				</div>

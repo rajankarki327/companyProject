@@ -8,7 +8,7 @@
 
 <div class="row">
 	<div class="col-lg-12">
-		<h1 class="page-header">Edit user's information</h1>
+		<h1 class="page-header">Upload slider</h1>
 	</div>
 </div>
 <!--/.row-->
@@ -17,20 +17,26 @@
 <div class="row">
 	<div class="col-lg-12">
 		<div class="panel panel-default">
-			<div class="panel-heading">User input fields</div>
+			<div class="panel-heading">Nav field</div>
+			<c:if test="${!empty message}">
+					${message}</c:if>
 			<div class="panel-body">
 				<div class="col-md-6">
-					<form role="form" modelAttribute="message" action="update/${id}?${_csrf.parameterName}=${_csrf.token}"
-						method="post"enctype="multipart/form-data">
+					<form role="form" enctype="multipart/form-data" action="add?${_csrf.parameterName}=${_csrf.token}"
+						method="post">
 						<fieldset>
 							<div class="form-group">
-								<label>File input</label><input type="file" name="file" value="Please Choose your image"/>
-								<img src="<c:url value="/resources/uploads/${slider.sliderName }"/>" style="height: 100px;width: 100px;">
-								
+								<label>Title</label> <input class="form-control" name="title"
+									placeholder="Enter title">
 							</div>
-<input type="hidden" name="${_csrf.parameterName}"
-								value="${_csrf.token}" />
-							<input type="submit" value="Slider Update" />
+							<div class="form-group">
+									<label>Details</label>
+									<textarea class="form-control" rows="3" name="details"></textarea>
+								</div>
+							<input type="hidden" name="${_csrf.parameterName}"
+								value="${_csrf.token}" />	
+							<input type="submit" value="Add" />	
+							
 						</fieldset>
 					</form>
 				</div>

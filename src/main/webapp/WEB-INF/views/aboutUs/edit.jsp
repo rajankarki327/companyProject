@@ -20,17 +20,23 @@
 			<div class="panel-heading">User input fields</div>
 			<div class="panel-body">
 				<div class="col-md-6">
+
+					<c:url var="addAction" value="/nav"></c:url>
 					<form role="form" modelAttribute="message" action="update/${id}?${_csrf.parameterName}=${_csrf.token}"
-						method="post"enctype="multipart/form-data">
+						method="post" enctype="multipart/form-data">
 						<fieldset>
 							<div class="form-group">
-								<label>File input</label><input type="file" name="file" value="Please Choose your image"/>
-								<img src="<c:url value="/resources/uploads/${slider.sliderName }"/>" style="height: 100px;width: 100px;">
-								
+								<label>Title Field</label> <input class="form-control"
+									name="title" value="${aboutUs.title }"
+									placeholder="title field">
 							</div>
-<input type="hidden" name="${_csrf.parameterName}"
-								value="${_csrf.token}" />
-							<input type="submit" value="Slider Update" />
+							<div class="form-group">
+									<label>Details</label>
+									<textarea class="form-control" rows="3" name="details" value="${aboutUs.title }"></textarea>
+								</div>
+							<input type="hidden" name="${_csrf.parameterName}"
+								value="${_csrf.token}" />	
+							<input type="submit" value="Add" />
 						</fieldset>
 					</form>
 				</div>

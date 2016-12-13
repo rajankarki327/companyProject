@@ -42,7 +42,7 @@ public class SliderController {
 		return new ModelAndView("slider/sliderUpload");
 	}
 
-	@RequestMapping("/submitFileUpload")
+	@RequestMapping("/submitFileUpload**")
 	public String fileUploaded(@ModelAttribute("uploadedFile") FileUpload uploadedFile, SliderModel sliderModel,
 			final RedirectAttributes redirectAttributes, BindingResult result) {
 		InputStream inputStream = null;
@@ -81,7 +81,7 @@ public class SliderController {
 			e.printStackTrace();
 		}
 		redirectAttributes.addFlashAttribute("message", "slider uploaded successfully...");
-		return "redirect:/nav/table";
+		return "redirect:/slider/table";
 	}
 
 	@RequestMapping(value = "/table", method = RequestMethod.GET)
@@ -96,7 +96,7 @@ public class SliderController {
 	public String deleteSlider(@PathVariable("id") int id, final RedirectAttributes redirectAttributes) {
 		this.sliderService.deleteSlider(id);
 		redirectAttributes.addAttribute("message", "Slider image deleted successfully.");
-		return "redirect:/nav/table";
+		return "redirect:/slider/table";
 
 		// return "index";
 	}
@@ -151,8 +151,6 @@ public class SliderController {
 		redirectAttributes.addFlashAttribute("message", "slider updated successfully...");
 		return "redirect:/slider/table";
 	}
-	
-	
 	
 	
 

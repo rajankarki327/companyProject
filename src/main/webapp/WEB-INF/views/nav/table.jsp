@@ -18,7 +18,7 @@
 		<div class="col-md-12">
 			<!-- Advanced Tables -->
 			<div class="panel panel-default">
-				<div class="panel-heading"><a href="nav/add">Add Nav Field</a></div>
+				<div class="panel-heading"><a href="add">Add Nav Field</a></div>
 				<p id="true"><c:if test="${!empty message}">
 					${message}</p></c:if>
 				<div class="panel-body">

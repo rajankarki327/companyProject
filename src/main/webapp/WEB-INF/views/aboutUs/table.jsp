@@ -10,7 +10,7 @@
 
 	<div class="row">
 		<div class="col-lg-12">
-			<h1 class="page-header">Slider's table</h1>
+			<h1 class="page-header">AboutUs field</h1>
 		</div>
 	</div>
 
@@ -18,7 +18,7 @@
 		<div class="col-md-12">
 			<!-- Advanced Tables -->
 			<div class="panel panel-default">
-				<div class="panel-heading"><a href="upload">Add Slider</a></div>
+				<div class="panel-heading"><a href="add">Add AboutUs Field</a></div>
 				<p id="true"><c:if test="${!empty message}">
 					${message}</p></c:if>
 				<div class="panel-body">
@@ -28,19 +28,21 @@
 							<thead>
 								<tr>
 									<th>ID</th>
-									<th>File</th>
+									<th>Title</th>
+									<th>Details</th>
 									<th>Edit</th>
 									<th>Delete</th>
 								</tr>
 							</thead>
-								<c:forEach items="${slider}" var="image">
+								<c:forEach items="${aboutUs}" var="aboutUs">
 							<tr class="odd gradeX">
-								<td class="center">${image.id }</td>
-								<td class="center"><img src="<c:url value="/resources/uploads/${image.sliderName }"/>" style="height: 100px;width: 100px;"></td>
-								<td class="breadcrumb"><a href="<c:url value='/slider/edit/${image.id}'/>"></svg> <svg
+								<td class="center">${aboutUs.id }</td>
+								<td class="center">${aboutUs.title }</td>
+								<td class="center">${aboutUs.details }</td>
+								<td class="breadcrumb"><a href="<c:url value='/about-us/edit/${aboutUs.id}'/>"></svg> <svg
 											class="glyph stroked pencil">
 											<use xlink:href="#stroked-pencil" /></svg></a></td>
-								<td class="breadcrumb"><a href="<c:url value='/slider/delete/${image.id}'/>"
+								<td class="breadcrumb"><a href="<c:url value='/about-us/delete/${aboutUs.id}'/>"
 									id="a18"
 									onclick="return confirm('Are you sure you want to delete this item?');"><svg class="glyph stroked trash"><use xlink:href="#stroked-trash"/></svg></a></td>
 							</tr>

@@ -2,6 +2,7 @@
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+ <%@page session="true"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -24,8 +25,8 @@
 					${message}</p></c:if>
 					<p id="false"><c:if test="${!empty msg}">
 					${msg}</p></c:if>
-				<div class="panel-body">
-					<form role="form" method="post" modelAttribute="login1" action="login">
+				<div class="panel-body">				
+					<form role="form" method="post" action="<c:url value='/j_spring_security_check' />">
 						<fieldset>
 							<div class="form-group">
 								<input class="form-control" placeholder="E-mail" name="email" type="email" autofocus="">
@@ -39,6 +40,8 @@
 								</label>
 							</div>
 							<input type="submit" value="Login"/><br/><br/>
+							<input type="hidden" name="${_csrf.parameterName}"
+								value="${_csrf.token}" />
 							<p>Not yet member, <a href="signup">Register here</a></p>
 						</fieldset>
 					</form>

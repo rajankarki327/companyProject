@@ -2,6 +2,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@page session="true"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -32,6 +34,21 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
+				
+	<!-- logout  -->				
+	<c:url value="/j_spring_security_logout" var="logoutUrl" />
+	<form action="${logoutUrl}" method="post" id="logoutForm">
+		<input type="hidden" name="${_csrf.parameterName}"
+			value="${_csrf.token}" />
+	</form>
+	<script>
+		function formSubmit() {
+			document.getElementById("logoutForm").submit();
+		}
+	</script>
+	
+	
+	
 				<a class="navbar-brand" href="#"><span></span>Admin</a>
 				<ul class="user-menu">
 					<li class="dropdown pull-right">
@@ -39,7 +56,8 @@
 						<ul class="dropdown-menu" role="menu">
 							<li><a href="#"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> Profile</a></li>
 							<!-- <li><a href="#"><svg class="glyph stroked gear"><use xlink:href="#stroked-gear"></use></svg> Settings</a></li> -->
-							<li><a href="login"><svg class="glyph stroked cancel"><use xlink:href="#stroked-cancel"></use></svg> Logout</a></li>
+							<c:url value="/j_spring_security_logout" var="logoutUrl" />
+							<li><a href="javascript:formSubmit()"><svg class="glyph stroked cancel"><use xlink:href="#stroked-cancel"></use></svg> Logout</a></li>
 						</ul>
 					</li>
 				</ul>
@@ -54,14 +72,15 @@
   <c:url var="users" value="/user/table" ></c:url> 
   <c:url var="sliders" value="/slider/table" ></c:url>
   <c:url var="navs" value="/nav/table" ></c:url>
-  <!-- <c:url var="sliders" value="/slider/table" ></c:url>
-  <c:url var="sliders" value="/slider/table" ></c:url> -->
+  <c:url var="aboutUss" value="/about-us/table"></c:url>
+  <c:url var="teams" value="/team/table" ></c:url>
+  <%-- <c:url var="sliders" value="/slider/table" ></c:url> --%>
 			<li <c:if test="${!empty dashboard}">class="active"</c:if>><a href="${dashboards }"><svg class="glyph stroked dashboard-dial"><use xlink:href="#stroked-dashboard-dial"></use></svg> Dashboard</a></li>
 			<li <c:if test="${!empty user}">class="active"</c:if>><a href="${users }"><svg class="glyph stroked calendar"><use xlink:href="#stroked-calendar"></use></svg>Users</a></li>
 			<li <c:if test="${!empty slider}">class="active"</c:if>><a href="${sliders }"><svg class="glyph stroked calendar"><use xlink:href="#stroked-calendar"></use></svg>Sliders</a></li>
 			<li <c:if test="${!empty nav}">class="active"</c:if>><a href="${navs }"><svg class="glyph stroked calendar"><use xlink:href="#stroked-calendar"></use></svg>Navigation bar</a></li>
-			<li <c:if test="${!empty u}">class="active"</c:if>><a href="charts.html"><svg class="glyph stroked line-graph"><use xlink:href="#stroked-line-graph"></use></svg> Charts</a></li>
-			<li <c:if test="${!empty uer}">class="active"</c:if>><a href="tables.html"><svg class="glyph stroked table"><use xlink:href="#stroked-table"></use></svg> Tables</a>
+			<li <c:if test="${!empty aboutUs}">class="active"</c:if>><a href="${aboutUss }"><svg class="glyph stroked line-graph"><use xlink:href="#stroked-line-graph"></use></svg>About-Us</a></li>
+			<li <c:if test="${!empty team}">class="active"</c:if>><a href="${teams }"><svg class="glyph stroked table"><use xlink:href="#stroked-table"></use></svg> Team</a>
 			</li>
 			<li><a href="forms.html"><svg class="glyph stroked pencil"><use xlink:href="#stroked-pencil"></use></svg> Forms</a></li>
 			<li><a href="panels.html"><svg class="glyph stroked app-window"><use xlink:href="#stroked-app-window"></use></svg> Alerts &amp; Panels</a></li>

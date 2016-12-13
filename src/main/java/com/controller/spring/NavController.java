@@ -33,7 +33,7 @@ import com.service.spring.NavService;
 			return model;
 		}
 
-		@RequestMapping(value = "/add", method = RequestMethod.POST)
+		@RequestMapping(value = "/add**", method = RequestMethod.POST)
 		public String register(@ModelAttribute("NavModel") NavModel S, final RedirectAttributes redirectAttributes) {
 //			String s = S.getEmail();
 			navService.addNavField(S);
@@ -44,7 +44,7 @@ import com.service.spring.NavService;
 		@RequestMapping(value = "/table", method = RequestMethod.GET)
 		public String getAllNavField(Model model) {
 			ArrayList<NavModel> list = (ArrayList<NavModel>) this.navService.getAllNavField();
-			model.addAttribute("homePath","table");
+			model.addAttribute("homePath","nav/table");
 			model.addAttribute("nav", list);
 			return "nav/table";
 		}

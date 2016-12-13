@@ -7,7 +7,9 @@
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
-		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+		">
+		
 	<mvc:annotation-driven />
 	<beans:bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -41,6 +43,8 @@
 				<beans:value>com.model.spring.UserModel</beans:value>
 				<beans:value>com.model.spring.SliderModel</beans:value>
 				<beans:value>com.model.spring.NavModel</beans:value>
+				<beans:value>com.model.spring.AboutUsModel</beans:value>
+				<beans:value>com.model.spring.TeamModel</beans:value>
 								
 			</beans:list>
 		</beans:property>
@@ -82,6 +86,26 @@
 	</beans:bean>
 	<beans:bean id="navService" class="com.service.spring.NavService">
 		<beans:property name="navDao" ref="navDao"></beans:property>
+	</beans:bean>
+	
+	<!-- about-us field -->
+	<beans:bean id="aboutUsDao" class="com.dao.spring.AboutUsDao">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+		<beans:property name="dataSource" ref="dataSource"></beans:property>
+	</beans:bean>
+	<beans:bean id="aboutUsService" class="com.service.spring.AboutUsService">
+		<beans:property name="aboutUsDao" ref="aboutUsDao"></beans:property>
+	</beans:bean>
+	
+	<!-- team field -->
+	<beans:bean id="teamDao" class="com.dao.spring.TeamDao">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+		<beans:property name="dataSource" ref="dataSource"></beans:property>
+	</beans:bean>
+	<beans:bean id="teamService" class="com.service.spring.TeamService">
+		<beans:property name="teamDao" ref="teamDao"></beans:property>
 	</beans:bean>
 
 

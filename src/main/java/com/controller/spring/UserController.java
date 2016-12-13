@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -78,7 +79,7 @@ public class UserController {
 	}
 	
 	
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	@RequestMapping(value = "/login1", method = RequestMethod.GET)
 	public ModelAndView login() {
 		UserModel model = new UserModel();
 		ModelAndView mav = new ModelAndView("user/login");
@@ -87,15 +88,39 @@ public class UserController {
 	}
 	
 
-	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String loginCheck(@ModelAttribute("UserModel") UserModel p,ModelMap model,final RedirectAttributes redirectAttributes) {
-		UserModel sum = this.userService.checkLogin(p);
-		if (sum == null) {
-			redirectAttributes.addFlashAttribute("msg", "Incorrect email or password...");
-			return "redirect:/user/login";	
+//	@RequestMapping(value = "/login", method = RequestMethod.POST)
+//	public String loginCheck(@ModelAttribute("UserModel") UserModel p,ModelMap model,final RedirectAttributes redirectAttributes) {
+//		UserModel sum = this.userService.checkLogin(p);
+//		if (sum == null) {
+//			redirectAttributes.addFlashAttribute("msg", "Incorrect email or password...");
+//			return "redirect:/user/login";	
+//		}
+//		model.put("name",p.getEmail());
+//		return ("redirect:/user/dashboard");
+//	}
+	
+	
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	public ModelAndView login(@RequestParam(value = "error", required = false) String error,
+			@RequestParam(value = "logout", required = false) String logout,final RedirectAttributes redirectAttributes) {
+
+		ModelAndView model = new ModelAndView();
+		if (error != null) {
+			model.addObject("message", "Invalid username and password!");
+		redirectAttributes.addFlashAttribute("msg", "Incorrect email or password...");
+
+			
 		}
-		model.put("name",p.getEmail());
-		return ("redirect:/user/dashboard");
+
+		if (logout != null) {
+			model.addObject("msg1", "You've been logged out successfully.");
+			redirectAttributes.addFlashAttribute("msg", "Incorrect email or password...");
+
+		}
+		model.setViewName("user/login");
+
+		return model;
+
 	}
 	
 	@RequestMapping(value = "/dashboard")

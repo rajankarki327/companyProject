@@ -23,13 +23,15 @@
 			<div class="panel-body">
 				<div class="col-md-6">
 					<form role="form" enctype="multipart/form-data"
-						modelAttribute="navModel" action="add"
+						modelAttribute="navModel" action="add?${_csrf.parameterName}=${_csrf.token}"
 						method="post">
 						<fieldset>
 							<div class="form-group">
 								<label>Nav Field</label> <input class="form-control" name="navField"
 									placeholder="Enter Nav field name">
 							</div>
+							<input type="hidden" name="${_csrf.parameterName}"
+								value="${_csrf.token}" />
 
 							<input type="submit" value="Add" />
 						</fieldset>

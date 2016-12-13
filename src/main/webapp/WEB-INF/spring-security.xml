@@ -1,0 +1,50 @@
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+	xmlns:beans="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/security
+	http://www.springframework.org/schema/security/spring-security.xsd">
+
+	<http auto-config="true" use-expressions="true">
+		<intercept-url pattern="/user/dashboard" access="hasRole('ROLE_ADMIN')" />
+		<intercept-url pattern="/nav/**" access="hasRole('ROLE_ADMIN')" />
+ 		<intercept-url pattern="/slider/**" access="hasRole('ROLE_ADMIN')" />
+ 		<intercept-url pattern="/about-us/**" access="hasRole('ROLE_ADMIN')"/>
+ 		<intercept-url pattern="/team/**" access="hasRole('ROLE_ADMIN')"/>
+ 	
+		
+ 		
+		<form-login login-page="/user/login" default-target-url="/user/dashboard"
+			login-processing-url="/j_spring_security_check"
+			authentication-failure-url="/user/login" username-parameter="email"
+			password-parameter="password" />
+		<logout logout-success-url="/user/login" logout-url="/j_spring_security_logout" />
+
+
+		<!-- enable csrf protection -->
+		 <csrf /> 
+	</http>
+	<!-- <http> <form-login /> <http-basic /> <logout /> </http> -->
+	  <authentication-manager>
+		 <authentication-provider>
+			<user-service>
+				<user name="karkirajan327@yahoo.com" password="root" authorities="ROLE_ADMIN" />
+			</user-service>
+		</authentication-provider> 	
+	</authentication-manager> 
+	
+	
+	 <!--  <authentication-manager>
+	  <authentication-provider>
+	   <password-encoder hash="md5"/>
+		<jdbc-user-service data-source-ref="dataSource" 
+		users-by-username-query="SELECT * FROM user WHERE email = ?"/>
+	  </authentication-provider>
+	  <authentication-provider>
+	  	<user-service>
+				<user name="karkirajan327@yahoo.com" password="root" authorities="ROLE_ADMIN" />
+			</user-service>
+	  </authentication-provider>
+	</authentication-manager> -->
+
+</beans:beans>
