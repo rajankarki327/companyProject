@@ -47,7 +47,7 @@ public class UserController {
 	@RequestMapping(value = "/table", method = RequestMethod.GET)
 	public String getAll(Model model) {
 		ArrayList<UserModel> list = (ArrayList<UserModel>) this.userService.getAll();
-		model.addAttribute("homePath","user/table");
+		model.addAttribute("homePath","/companyProject/user/table");
 		model.addAttribute("user", list);
 		return "user/table";
 	}
