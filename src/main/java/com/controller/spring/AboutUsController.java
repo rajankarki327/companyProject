@@ -49,7 +49,7 @@ import com.service.spring.AboutUsService;
 		@RequestMapping(value = "/table", method = RequestMethod.GET)
 		public String getAllAboutUsField(Model model) {
 			ArrayList<AboutUsModel> list = (ArrayList<AboutUsModel>) this.aboutUsService.getAllAboutUsField();
-			model.addAttribute("homePath","about-us/table");
+			model.addAttribute("homePath","/companyProject/about-us/table");
 			model.addAttribute("aboutUs", list);
 			return "aboutUs/table";
 		}

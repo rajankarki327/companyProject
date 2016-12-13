@@ -44,7 +44,7 @@ import com.service.spring.NavService;
 		@RequestMapping(value = "/table", method = RequestMethod.GET)
 		public String getAllNavField(Model model) {
 			ArrayList<NavModel> list = (ArrayList<NavModel>) this.navService.getAllNavField();
-			model.addAttribute("homePath","nav/table");
+			model.addAttribute("homePath","/companyProject/nav/table");
 			model.addAttribute("nav", list);
 			return "nav/table";
 		}

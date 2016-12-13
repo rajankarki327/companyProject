@@ -87,7 +87,7 @@ public class SliderController {
 	@RequestMapping(value = "/table", method = RequestMethod.GET)
 	public String getAllSlider(Model model) {
 		ArrayList<SliderModel> list = (ArrayList<SliderModel>) this.sliderService.getAllSlider();
-		model.addAttribute("homePath", "slider/table");
+		model.addAttribute("homePath", "/companyProject/slider/table");
 		model.addAttribute("slider", list);
 		return "slider/table";
 	}

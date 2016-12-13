@@ -90,7 +90,7 @@ public class TeamController {
 	@RequestMapping(value = "/table", method = RequestMethod.GET)
 	public String getAllTeam(Model model) {
 		ArrayList<TeamModel> list = (ArrayList<TeamModel>) this.teamService.getAllTeam();
-		model.addAttribute("homePath", "team/table");
+		model.addAttribute("homePath", "/companyProject/team/table");
 		model.addAttribute("team", list);
 		return "team/table";
 	}
