@@ -12,8 +12,6 @@
 	</div>
 </div>
 <!--/.row-->
-
-
 <div class="row">
 	<div class="col-lg-12">
 		<div class="panel panel-default">
@@ -22,17 +20,17 @@
 				<div class="col-md-6">
 
 					<c:url var="addAction" value="/nav"></c:url>
-					<form role="form" modelAttribute="message" action="update/${id}?${_csrf.parameterName}=${_csrf.token}"
+					<form role="form" modelAttribute="message" id="updateAbout" action="update/${id}?${_csrf.parameterName}=${_csrf.token}"
 						method="post" enctype="multipart/form-data">
 						<fieldset>
 							<div class="form-group">
 								<label>Title Field</label> <input class="form-control"
 									name="title" value="${aboutUs.title }"
-									placeholder="title field">
+									placeholder="title field" required>
 							</div>
 							<div class="form-group">
 									<label>Details</label>
-									<textarea class="form-control" rows="3" name="details" value="${aboutUs.title }"></textarea>
+									<textarea class="form-control" rows="3" name="details" required>${aboutUs.details}</textarea>
 								</div>
 							<input type="hidden" name="${_csrf.parameterName}"
 								value="${_csrf.token}" />	

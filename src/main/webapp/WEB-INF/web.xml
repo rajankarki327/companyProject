@@ -11,6 +11,9 @@
 			/WEB-INF/spring-security.xml
 		</param-value>
 	</context-param> 
+	<welcome-file-list>
+		<welcome-file></welcome-file>	
+	</welcome-file-list>
   <servlet>
   	<servlet-name>appServlet</servlet-name>
         <servlet-class>
