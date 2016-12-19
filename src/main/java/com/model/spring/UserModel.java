@@ -16,8 +16,13 @@ public class UserModel {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String name;
+	
+	@Column(unique = true,name="username")
 	private String username;
+	
+	@Column(unique = true)
 	private String email;
+	
 	private String address;
 	private String password;
 		

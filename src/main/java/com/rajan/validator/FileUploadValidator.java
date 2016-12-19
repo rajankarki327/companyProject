@@ -6,9 +6,9 @@ import org.springframework.validation.Validator;
 
 import com.model.spring.FileUpload;
 
-
-
 public class FileUploadValidator implements Validator{
+	
+	
 
 	public boolean supports(Class clazz) {
 		//just validate the FileUpload instances

@@ -23,23 +23,23 @@
 					<form role="form" modelAttribute="message" action="update/${id}" method="post">
 						<fieldset>
 							<div class="form-group">
-								<input class="form-control" value="${user.name }" name="name"
+								<input class="form-control" value="${user.name }" name="name" required
 									type="text" autofocus="">
 							</div>
 							<div class="form-group">
 								<div class="form-group">
-									<input class="form-control" value="${user.username }"
+									<input class="form-control" value="${user.username }" required
 										name="username" type="text" autofocus="">
 								</div>
-								<input class="form-control" value="${user.email }" name="email"
+								<input class="form-control" value="${user.email }" name="email" required
 									type="email" autofocus="">
 							</div>
 							<div class="form-group">
-								<input class="form-control" value="${user.address }" name="address"
+								<input class="form-control" value="${user.address }" name="address" required
 									type="text" autofocus="">
 							</div>
 							<div class="form-group">
-								<input class="form-control" value="${user.password }"
+								<input class="form-control" value="${user.password }" required
 									name="password" type="password" value="">
 							</div>
 								<input type="hidden" name="${_csrf.parameterName}"

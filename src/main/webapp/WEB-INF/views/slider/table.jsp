@@ -36,7 +36,7 @@
 								<c:forEach items="${slider}" var="image">
 							<tr class="odd gradeX">
 								<td class="center">${image.id }</td>
-								<td class="center"><img src="<c:url value="/resources/uploads/${image.sliderName }"/>" style="height: 100px;width: 100px;"></td>
+								<td class="center"><img src="<c:url value="/resources/uploads/${image.sliderName }"/>" style="height: 100px;width: 375px;"></td>
 								<td class="breadcrumb"><a href="<c:url value='/slider/edit/${image.id}'/>"></svg> <svg
 											class="glyph stroked pencil">
 											<use xlink:href="#stroked-pencil" /></svg></a></td>

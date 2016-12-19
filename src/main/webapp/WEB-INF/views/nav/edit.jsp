@@ -25,7 +25,7 @@
 						method="post"enctype="multipart/form-data">
 						<fieldset>
 							<div class="form-group">
-								<label></label> <input class="form-control" name="navField" value="${nav.navField }"
+								<label></label> <input class="form-control" required name="navField" value="${nav.navField }"
 									placeholder="Edit Nav field name">
 							</div>
 								<input type="hidden" name="${_csrf.parameterName}"

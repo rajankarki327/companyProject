@@ -27,7 +27,7 @@
 						method="post">
 						<fieldset>
 							<div class="form-group">
-								<label>Nav Field</label> <input class="form-control" name="navField"
+								<label>Nav Field</label> <input class="form-control" name="navField" required
 									placeholder="Enter Nav field name">
 							</div>
 							<input type="hidden" name="${_csrf.parameterName}"

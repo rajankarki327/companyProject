@@ -13,6 +13,7 @@ import java.util.ArrayList;
 
 import javax.sql.DataSource;
 
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
@@ -28,10 +29,29 @@ public class UserDao {
 	}
 
 	private SessionFactory sessionFactory;
-	
+
 	public void setSessionFactory(SessionFactory sf) {
 		this.sessionFactory = sf;
 	}
+	@SuppressWarnings("unchecked")
+	public ArrayList<UserModel> isEmailExit(String s2)
+	{
+
+		 Session session = this.sessionFactory.getCurrentSession();
+		ArrayList<UserModel> su = (ArrayList<UserModel>) session.createQuery("select u from UserModel u where u.email ='"+s2+"'").list();
+		 return su;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public ArrayList<UserModel> isUsernameExit(String s2)
+	{
+
+		 Session session = this.sessionFactory.getCurrentSession();
+		ArrayList<UserModel> su = (ArrayList<UserModel>) session.createQuery("select u from UserModel u where u.username ='"+s2+"'").list();
+		 return su;
+	}
+	
+	
 
 	public void addUser(UserModel userModel) {
 		Session session = this.sessionFactory.getCurrentSession();
@@ -56,41 +76,38 @@ public class UserDao {
 
 	public UserModel getUserById(int id) {
 
-//		Session session = this.sessionFactory.getCurrentSession();
-//		UserModel s = (UserModel) session.createQuery("from UserModel where id="+id);
-//		return s;
+		// Session session = this.sessionFactory.getCurrentSession();
+		// UserModel s = (UserModel) session.createQuery("from UserModel where
+		// id="+id);
+		// return s;
 
-		 String sql = "SELECT * FROM user WHERE id = ?";
-		
-		 Connection conn = null;
-		
-		 try {
-		 conn =dataSource.getConnection();
-		 PreparedStatement ps = conn.prepareStatement(sql);
-		 ps.setInt(1, id);
-		 UserModel userModel = null;
-		 ResultSet rs = ps.executeQuery();
-		 if (rs.next()) {
-		 userModel = new UserModel(
-		 rs.getString("name"),
-		 rs.getString("username"),
-		 rs.getString("email"),
-		 rs.getString("address"),
-		 rs.getString("password")
-		 );
-		 }
-		 rs.close();
-		 ps.close();
-		 return userModel;
-		 } catch (SQLException e) {
-		 throw new RuntimeException(e);
-		 } finally {
-		 if (conn != null) {
-		 try {
-		 conn.close();
-		 } catch (SQLException e) {}
-		 }
-		 }
+		String sql = "SELECT * FROM user WHERE id = ?";
+
+		Connection conn = null;
+
+		try {
+			conn = dataSource.getConnection();
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setInt(1, id);
+			UserModel userModel = null;
+			ResultSet rs = ps.executeQuery();
+			if (rs.next()) {
+				userModel = new UserModel(rs.getString("name"), rs.getString("username"), rs.getString("email"),
+						rs.getString("address"), rs.getString("password"));
+			}
+			rs.close();
+			ps.close();
+			return userModel;
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		} finally {
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+				}
+			}
+		}
 	}
 
 	public void editUser(UserModel s) {
@@ -127,4 +144,5 @@ public class UserDao {
 			}
 		}
 	}
+	
 }

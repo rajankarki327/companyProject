@@ -26,12 +26,12 @@
 						method="post">
 						<fieldset>
 							<div class="form-group">
-								<label>Title</label> <input class="form-control" name="title"
+								<label>Title</label> <input class="form-control" name="title" required="required"
 									placeholder="Enter title">
 							</div>
 							<div class="form-group">
 									<label>Details</label>
-									<textarea class="form-control" rows="3" name="details"></textarea>
+									<textarea class="form-control" rows="3" name="details" required="required"></textarea>
 								</div>
 							<input type="hidden" name="${_csrf.parameterName}"
 								value="${_csrf.token}" />	

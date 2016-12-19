@@ -28,33 +28,33 @@
 						<fieldset>
 						
 							<div class="form-group">
-								<label>Name</label> <input class="form-control" name="name"
+								<label>Name</label> <input class="form-control" name="name" required
 									placeholder="Enter name">
 							</div>
 							
 							<div class="form-group">
-								<label>Post</label> <input class="form-control" name="post"
+								<label>Post</label> <input class="form-control" name="post" required
 									placeholder="Enter post">
 							</div>
 							
 							<div class="form-group">
-								<label>Image</label> <input type="file" name="image">
+								<label>Image</label> <input type="file" name="image" required>
 								<td style="color: red; font-style: italic;"><form:errors
 										path="file" /></td>
 							</div>
 							
 							<div class="form-group">
-								<label>details</label> <input class="form-control" name="details"
+								<label>details</label> <input class="form-control" name="details" required
 									placeholder="Enter details">
 							</div>
 							
 							<div class="form-group">
-								<label>fb_id</label> <input class="form-control" name="fb_id"
+								<label>fb_id</label> <input class="form-control" name="fb_id" 
 									placeholder="Enter facebook id">
 							</div>
 							
 							<div class="form-group">
-								<label>twiter_id</label> <input class="form-control" name="twiter_id"
+								<label>twiter_id</label> <input class="form-control" name="twiter_id" 
 									placeholder="Enter twiter id">
 							</div>
 													

@@ -29,7 +29,7 @@
 							<div class="form-group">
 								<label>Choose your slider image</label> <input type="file" name="file">
 								<td style="color: red; font-style: italic;"><form:errors
-										path="file" /></td>
+       path="file" />
 							</div>
 							<input type="hidden" name="${_csrf.parameterName}"
 								value="${_csrf.token}" />

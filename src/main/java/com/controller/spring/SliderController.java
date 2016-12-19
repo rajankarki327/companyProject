@@ -55,7 +55,7 @@ public class SliderController {
 
 		String fileName = file.getOriginalFilename();
 		sliderModel.setSliderName(fileName);
-		sliderService.uploadImage(sliderModel);
+
 
 		// If it has error, redirect it to same page
 		if (result.hasErrors()) {
@@ -63,6 +63,7 @@ public class SliderController {
 		}
 
 		try {
+			
 			inputStream = file.getInputStream();
 
 			File newFile = new File("D:/springWorkspace/companyProject/src/main/webapp/resources/uploads/" + fileName);
@@ -71,7 +72,7 @@ public class SliderController {
 			}
 			outputStream = new FileOutputStream(newFile);
 			int read = 0;
-			byte[] bytes = new byte[1024];
+			byte[] bytes = new byte[2048];
 
 			while ((read = inputStream.read(bytes)) != -1) {
 				outputStream.write(bytes, 0, read);
@@ -80,6 +81,7 @@ public class SliderController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		sliderService.uploadImage(sliderModel);
 		redirectAttributes.addFlashAttribute("message", "slider uploaded successfully...");
 		return "redirect:/slider/table";
 	}
@@ -121,10 +123,6 @@ public class SliderController {
 		MultipartFile file = uploadedFile.getFile();
 		fileValidator.validate(uploadedFile, result);
 
-		String fileName = file.getOriginalFilename();
-		sliderModel.setSliderName(fileName);
-		sliderService.editSlider(sliderModel);
-
 		// If it has error, redirect it to same page
 		if (result.hasErrors()) {
 			return ("slider/edit");
@@ -132,6 +130,8 @@ public class SliderController {
 
 		try {
 			inputStream = file.getInputStream();
+			String fileName = file.getOriginalFilename();
+			sliderModel.setSliderName(fileName);
 
 			File newFile = new File("D:/springWorkspace/companyProject/src/main/webapp/resources/uploads/" + fileName);
 			if (!newFile.exists()) {
@@ -139,7 +139,7 @@ public class SliderController {
 			}
 			outputStream = new FileOutputStream(newFile);
 			int read = 0;
-			byte[] bytes = new byte[1024];
+			byte[] bytes = new byte[2048];
 
 			while ((read = inputStream.read(bytes)) != -1) {
 				outputStream.write(bytes, 0, read);
@@ -148,6 +148,7 @@ public class SliderController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+//		sliderService.editSlider(sliderModel);
 		redirectAttributes.addFlashAttribute("message", "slider updated successfully...");
 		return "redirect:/slider/table";
 	}

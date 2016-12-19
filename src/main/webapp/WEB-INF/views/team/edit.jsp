@@ -25,23 +25,23 @@
 						<fieldset>
 						
 							<div class="form-group">
-								<label>Name</label> <input class="form-control" name="name"value="${team.name }"
+								<label>Name</label> <input class="form-control" name="name"value="${team.name }" required
 									placeholder="Enter name">
 							</div>
 							
 							<div class="form-group">
-								<label>Post</label> <input class="form-control" name="post"value="${team.post }"
+								<label>Post</label> <input class="form-control" name="post"value="${team.post }" required
 									placeholder="Enter post">
 							</div>
 							
 							<div class="form-group">
-								<label>Image</label> <input type="file" name="image">value="${team.image }"
+								<label>Image</label> <input type="file" name="image">value="${team.image }" required
 								<td style="color: red; font-style: italic;">
 								<img src="<c:url value="/resources/uploads/${team.image }"/>" style="height: 100px;width: 100px;">
 							</div>
 							
 							<div class="form-group">
-								<label>details</label> <input class="form-control" name="details"value="${team.details }"
+								<label>details</label> <input class="form-control" name="details"value="${team.details }" required
 									placeholder="Enter details">
 							</div>
 							

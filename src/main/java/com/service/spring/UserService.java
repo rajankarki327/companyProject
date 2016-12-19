@@ -25,6 +25,19 @@ public class UserService {
 	}
 	
 	@Transactional
+	public ArrayList<UserModel> isEmailExit(String s)
+	{
+		return this.userDao.isEmailExit(s);
+	}
+	
+	@Transactional
+	public ArrayList<UserModel> isUsernameExit(String s)
+	{
+		return this.userDao.isUsernameExit(s);
+	}
+	
+	
+	@Transactional
 	public ArrayList<UserModel> getAll() {
 		return (ArrayList<UserModel>) this.userDao.getAll();
 	}
@@ -52,5 +65,6 @@ public class UserService {
 		return this.userDao.checkLogin(i);
 	}
 
-
+  
+	
 }

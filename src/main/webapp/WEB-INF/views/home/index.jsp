@@ -11,7 +11,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=devidev-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>The Nim- Responsive Landing Page</title>
+	<title>RkTechnologies</title>
 	
 	<!-- [ FONT-AWESOME ICON ] 
         =========================================================================================================================-->
@@ -64,14 +64,14 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-            <a class="navbar-brand" href="index.html"><span class="themecolor">rk</span>technologies</a>
+            <a class="navbar-brand" href="/companyProject/"><span class="themecolor">rk</span>technologies</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <c:forEach items="${nav}" var="nav">
           <ul class="nav navbar-nav navbar-right">    
-            <li><a href="#nav_${nav.id}" class="page-scroll">${nav.navField }</a></li>
+            <li><a href="#${nav.navField}" class="page-scroll">${nav.navField }</a></li>
           </ul>
           </c:forEach>
         </div><!-- /.navbar-collapse -->
@@ -93,7 +93,7 @@
         <p class="main-heading-text">Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore,<br/>cum soluta nobis est eligendi optio cumque nihil impedit quo facilis</p>
         <div class="btn-bar">
           <a href="#" class="btn btn-custom theme_background_color">Ge Started</a>
-          <a href="#" class="btn btn-custom-outline">Contact Us</a>
+          <a href="#contact" class="btn btn-custom-outline">Contact Us</a>
         </div>
       </div>
                </div>
@@ -108,7 +108,7 @@
  
  <!-- [ABOUT US]
  ============================================================================================================================-->
- <section class="aboutus white-background black" id="one">
+ <section class="aboutus white-background black" id="About">
      <div class="container">
          <div class="row">
              <div class="col-md-12 text-center black">
@@ -145,7 +145,7 @@
  
  <!-- [RECENT-WORKS]
  ============================================================================================================================-->
-     <section class="recent-works text-center" id="two">
+     <section class="recent-works text-center" id="Our works">
       <div class="container">
         <div class="row">
           <div class="col-md-12">
@@ -159,9 +159,9 @@
         <div class="row">
           <div class="col-sm-4 port-item margin-bottom">
             <div class="item-img-wrap">
-              <img src="images/work-1.jpg" class="img-responsive" alt="workimg">
+              <img src="<c:url value="/resources/home/images/work-1.jpg"/>" class="img-responsive" alt="workimg">
               <div class="item-img-overlay">
-                <a href="images/work-1.jpg" class="show-image">
+                <a href="<c:url value="/resources/home/images/work-1.jpg"/>" class="show-image">
                   <span></span>
                 </a>
               </div>
@@ -174,9 +174,9 @@
 
           <div class="col-sm-4 port-item margin-bottom">
             <div class="item-img-wrap">
-              <img src="images/work-2.jpg" class="img-responsive" alt="workimg">
+              <img src="<c:url value="/resources/home/images/work-2.jpg"/>" class="img-responsive" alt="workimg">
               <div class="item-img-overlay">
-                <a href="images/work-2.jpg" class="show-image">
+                <a href="<c:url value="/resources/home/images/work-2.jpg"/>" class="show-image">
                   <span></span>
                 </a>
               </div>
@@ -189,9 +189,9 @@
 
           <div class="col-sm-4 port-item margin-bottom">
             <div class="item-img-wrap">
-              <img src="images/work-3.jpg" class="img-responsive" alt="workimg">
+              <img src="<c:url value="/resources/home/images/work-3.jpg"/>" class="img-responsive" alt="workimg">
               <div class="item-img-overlay">
-                <a href="images/work-3.jpg" class="show-image">
+                <a href="<c:url value="/resources/home/images/work-3.jpg"/>" class="show-image">
                   <span></span>
                 </a>
               </div>
@@ -226,24 +226,25 @@
               <h3 class="title">Creative <span class="themecolor">Team</span></h3>
            
         </div>
-        <c:forEach items="${team}" var="team">
+		<c:set var="team" value="${team}"/>
+        <% for(int i = 0; i < 4; i++) { %>
           <div class="row text-center">
           <div class="col-sm-3">
-            <img src="<c:url value="/resources/uploads/${team.image }"/> " height="340px;" width="290px;" alt="team-member">
-            <h4>${team.name }</h4>
-            <h5>${team.post }</h5>
-            <p>${team.details }</p>
+            <img src="<c:url value="/resources/uploads/${team.get(i).image }"/> " height="340px;" width="290px;" alt="team-member">
+            <h4>${team.get(i).name }</h4>
+            <h5>${team.get(i).post }</h5>
+            <p>${team.get(i).details }</p>
             <ul class="list-inline top20">
-              <li><a href="${team.fbURL}"><i class="fa fa-facebook"></i></a></li>
-              <li><a href="${team.twitterURL }"><i class="fa fa-twitter"></i></a></li>
+              <li><a href="${team.get(i).fbURL}"><i class="fa fa-facebook"></i></a></li>
+              <li><a href="${team.get(i).twitterURL }"><i class="fa fa-twitter"></i></a></li>
             </ul>
           </div> 
-          </c:forEach>
+          <% } %>
         </div> 
 
         <div class="row margin-top">
           <div class="col-md-12 text-center">
-            <a href="#" class="btn btn-custom theme_background_color ">We are Hiring</a>
+            <a href="all-team" class="btn btn-custom theme_background_color ">Load More</a>
           </div> <!-- /col -->
         </div> <!-- /row -->
           
@@ -262,7 +263,7 @@
  ============================================================================================================================-->
  
  
- <section class="services white-background black" id="seven">
+ <section class="services white-background black" id="Services">
       <div class="container">
         <div class="row text-center">
           <div class="col-md-12">
@@ -379,19 +380,22 @@
  <!-- [CONTACT]
  ============================================================================================================================-->
  <!--sub-form-->
-<section class="sub-form text-center" id="eight">
+<section class="sub-form text-center" id="Contact">
   <div class="container">
     <div class="col-md-12">
-        <h3 class="title">Subscribe to our <span class="themecolor"> News letter</span></h3>
-            <p class="lead">Lorem ipsum dolor sit amet ne onsectetuer adipiscing elit. Aenean commodo ligula eget dolor in tashin ty</p>
+        <h3 class="title">Subscribe to our <span class="themecolor"> Company</span></h3>
+            <p class="lead"><c:if test="${!empty subscribe}">
+					<p style="color: green">${subscribe}</p></c:if></p>
     </div> 
     <div class="row">
         <div class="col-md-3 col-sm-3"></div>
       <div class="col-md-6 center-block col-sm-6 ">
-        <form id="mc-form">
+        <form <%-- id="mc-form" --%> modelAttribute="subscribe" method="post" action="subscribe?${_csrf.parameterName}=${_csrf.token}"">
           <div class="input-group">
-            <input type="email" class="form-control" placeholder="Email Address" required id="mc-email">
+            <input type="email" class="form-control" name="email" placeholder="Email Address" required id="mc-email">
             <span class="input-group-btn">
+            <input type="hidden" name="${_csrf.parameterName}"
+								value="${_csrf.token}" />
             <button type="submit" class="btn btn-default">SUBSCRIBE <i class="fa fa-envelope"></i> </button>
             </span> </div>
           <label for="mc-email" id="mc-notification"></label>

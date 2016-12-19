@@ -29,7 +29,7 @@
 					<form role="form" method="post" action="<c:url value='/j_spring_security_check' />">
 						<fieldset>
 							<div class="form-group">
-								<input class="form-control" placeholder="E-mail" name="email" type="email" autofocus="">
+								<input class="form-control" placeholder="Username" name="username" type="text"  autofocus="">
 							</div>
 							<div class="form-group">
 								<input class="form-control" placeholder="Password" name="password" type="password" value="">
@@ -48,6 +48,7 @@
 				</div>
 			</div>
 		</div><!-- /.col-->
-	</div><!-- /.row -->	
+	</div><!-- /.row -->
+		
 	
 <%@include file="script.jsp"%>

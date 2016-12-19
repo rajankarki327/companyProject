@@ -24,7 +24,8 @@
 						method="post"enctype="multipart/form-data">
 						<fieldset>
 							<div class="form-group">
-								<label>File input</label><input type="file" name="file" value="Please Choose your image"/>
+								<label>File input</label><input type="file" name="file" value="Please Choose your image"/>	
+							<td style="color: red; font-style: italic;"><form:errors path="file" />
 								<img src="<c:url value="/resources/uploads/${slider.sliderName }"/>" style="height: 100px;width: 100px;">
 								
 							</div>

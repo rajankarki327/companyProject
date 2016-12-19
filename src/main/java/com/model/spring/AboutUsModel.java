@@ -18,7 +18,7 @@ public class AboutUsModel {
 	
 	private String title;
 	
-	@Column(name = "details")
+	@Column(name = "details", length=1000)
 	private String details;
 
 	public int getId() {

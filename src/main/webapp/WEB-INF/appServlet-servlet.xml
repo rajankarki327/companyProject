@@ -45,6 +45,7 @@
 				<beans:value>com.model.spring.NavModel</beans:value>
 				<beans:value>com.model.spring.AboutUsModel</beans:value>
 				<beans:value>com.model.spring.TeamModel</beans:value>
+				<beans:value>com.model.spring.UserSubscriberModel</beans:value>
 								
 			</beans:list>
 		</beans:property>
@@ -106,6 +107,15 @@
 	</beans:bean>
 	<beans:bean id="teamService" class="com.service.spring.TeamService">
 		<beans:property name="teamDao" ref="teamDao"></beans:property>
+	</beans:bean>
+	
+	<!-- eternal user subscribe -->
+	<beans:bean id="userSubscriberDao" class="com.dao.spring.UserSubscriberDao">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+	<beans:bean id="userSubscriberService" class="com.service.spring.UserSubscriberService">
+		<beans:property name="userSubscriberDao" ref="userSubscriberDao"></beans:property>
 	</beans:bean>
 
 

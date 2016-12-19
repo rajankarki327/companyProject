@@ -32,28 +32,30 @@
 				<div class="panel-heading">Signup</div>
 				<div class="panel-body">
 
-					<form role="form" action="signup" method="post">
+					<form role="form" action="signup" method="post" id="signup">
 						<fieldset>
 							<div class="form-group">
-								<input class="form-control" placeholder="Full Name" name="name"
+								<input class="form-control" placeholder="Full Name" name="name" required
 									type="text" autofocus="">
 							</div>
 							<div class="form-group">
 								<div class="form-group">
-									<input class="form-control" placeholder="Username"
-										name="username" type="text" autofocus="">
+									<input class="form-control" placeholder="Username" required
+										name="username" type="text" autofocus=""><c:if test="${!empty message1}">
+					<p style="color: red">${message1}</p></c:if>
 								</div>
-								<!-- <input class="form-control" placeholder="E-mail" name="email"
-									type="email" autofocus=""> -->
+								 <input class="form-control" placeholder="E-mail" name="email" required
+									type="email" autofocus=""><c:if test="${!empty message}">
+					<p style="color: red">${message}</p></c:if> 
 							</div>
 							<div class="form-group">
-								<input class="form-control" placeholder="Address" name="address"
+								<input class="form-control" placeholder="Address" name="address" required
 									type="text" autofocus="">
 							</div>
-							<!-- <div class="form-group">
-								<input class="form-control" placeholder="Password"
+							 <div class="form-group">
+								<input class="form-control" placeholder="Password" required
 									name="password" type="password" value="">
-							</div> -->
+							</div> 
 							<input type="hidden" name="${_csrf.parameterName}"
 								value="${_csrf.token}" /> <input type="submit" value="Signup" />
 						</fieldset>
@@ -64,5 +66,6 @@
 		<!-- /.col-->
 	</div>
 	<!-- /.row -->
+	
 
 	<%@include file="script.jsp"%>
