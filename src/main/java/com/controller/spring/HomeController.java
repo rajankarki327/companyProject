@@ -64,7 +64,7 @@ public class HomeController {
 	{
 		this.userSubscriberService.subscribe(userSubscriberModel);
 		redirectAttributes.addFlashAttribute("subscribe", "Thanks for subscribe us");
-		return "redirect:/#contact";
+		return "redirect:/#Contact";
 	}
 	
 	@RequestMapping(value="all-team" ,method=RequestMethod.GET)

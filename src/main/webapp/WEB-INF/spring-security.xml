@@ -29,15 +29,15 @@
 		ref="encoder" /> <user-service> <user name="root" password="root" authorities="ROLE_ADMIN" 
 		/> </user-service> </authentication-provider> </authentication-manager> -->
 
-	<beans:bean id="encoder"
+	<!-- <beans:bean id="encoder"
 		class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder">
 		<beans:constructor-arg name="strength" value="10" />
-	</beans:bean>
+	</beans:bean> -->
 
 
 	<authentication-manager>
 		<authentication-provider>
-			<password-encoder ref="encoder" />
+			<!-- <password-encoder ref="encoder" /> -->
 			<jdbc-user-service data-source-ref="dataSource"
 				users-by-username-query="select username,password, enabled from users where username=?"
 				authorities-by-username-query="select username, role from user_roles where username =?  " />

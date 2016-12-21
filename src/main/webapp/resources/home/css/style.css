@@ -957,3 +957,13 @@ font-family: 'Roboto Slab', serif;
     100% { opacity: 0; }
 }
 
+ #map {
+        height: 400px;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+
