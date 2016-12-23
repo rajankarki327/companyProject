@@ -30,9 +30,9 @@
 		destroy-method="close">
 		<beans:property name="driverClassName" value="com.mysql.jdbc.Driver" />
 		<beans:property name="url"
-			value="jdbc:mysql://localhost:3306/company_db" />
-		<beans:property name="username" value="root" />
-		<beans:property name="password" value="root" />
+			value="jdbc:mysql://127.8.130.2:3306/rktech" />
+		<beans:property name="username" value="admin2htnSb8" />
+		<beans:property name="password" value="LrE8gUKKfq6G" />
 	</beans:bean>
 
 	<beans:bean id="hibernate4AnnotatedSessionFactory"
